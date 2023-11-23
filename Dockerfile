@@ -11,10 +11,15 @@ WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 
+# ホストのすべてのファイルをコンテナにコピー
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update && apt-get install -y yarn
 # Bundlerを使ってGemをインストール
 RUN bundle install
 
-# ホストのすべてのファイルをコンテナにコピー
+
 COPY . /myapp
 
 # ポート3000を公開
