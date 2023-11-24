@@ -13,6 +13,10 @@ AllCops:
     - "log/**/*"
     - "tmp/**/*"
     - "vendor/**/*"
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
 
 #################### Layout ########################
 # https://docs.rubocop.org/rubocop/cops_layout.html
@@ -43,16 +47,8 @@ Layout/SpaceInLambdaLiteral:
 Layout/SpaceInsideBlockBraces:
   Enabled: true
   SpaceBeforeBlockParameters: false
-# メソッドの改行ルール
-Layout/MultilineMethodCallIndentation:
-  Enabled: true
-  EnforcedStyle: indented
 Layout/IndentationConsistency:
   Enabled: true
-  # インデントの幅
-  IndentationWidth: 2
-  # タブを使うかどうか
-  UseTab: false
 
 #################### Lint #######################
 # ブロック内で定数（ class/module の定義も含む）の定義を許可しない
@@ -98,7 +94,7 @@ Rails/HelperInstanceVariable:
   Enabled: true
 
 #################### RSpec ########################
-RSpec/ArroundBlock:
+RSpec/AroundBlock:
   Enabled: true
 RSpec/Be:
   Enabled: true
