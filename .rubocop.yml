@@ -1,0 +1,144 @@
+AllCops:
+  NewCops: enable
+  # 設定されていないcopはデフォルトでoffにする
+  DisabledByDefault: true
+  # 何のルールに引っかかったか表示する
+  DisplayCopNames: true
+  # 適用しないファイルを指定する
+  Exclude:
+    - 'gems/**/*'
+    - "Gemfile"
+    - "bin/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+
+#################### Layout ########################
+# https://docs.rubocop.org/rubocop/cops_layout.html
+
+# Hash オブジェクトの書き方
+Layout/HashAlignment:
+  Enabled: true
+  # key & ロケットを使う場合はロケット & value を左揃えにする
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+# 1行の最大文字数
+Layout/LineLength:
+  Enabled: true
+  Max: 180
+# 複数行にわたる値を代入する際に、 = の後に改行をするかどうか
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+# 複数行に渡ってメソッドチェーンするときのインデント位置
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented_relative_to_receiver
+# lambda の -> と (params) の間にスペースを入れるか
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+  EnforcedStyle: require_space
+# ブロックを {...} で書く場合のスペースの空け方
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  SpaceBeforeBlockParameters: false
+# メソッドの改行ルール
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+Layout/IndentationConsistency:
+  Enabled: true
+  # インデントの幅
+  IndentationWidth: 2
+  # タブを使うかどうか
+  UseTab: false
+
+#################### Lint #######################
+# ブロック内で定数（ class/module の定義も含む）の定義を許可しない
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+  # ブロック内で定数を定義することのあるファイル（データの定義や stub 用のクラス定義など）は除外する
+  Exclude:
+    - db/**/*.rb
+    - spec/**/*.rb
+# float の比較を許可しない
+Lint/FloatComparison:
+  Enabled: true
+Lint/UselessMethodDefinition:
+  Enabled: true
+# 結果がどこにも作用しない演算子やメソッドを使っていたら警告を出す
+Lint/Void:
+  Enabled: true
+Lint/UnusedMethodArgument:
+  Enabled: true
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+Lint/UselessAssignment:
+  Enabled: true
+Lint/DuplicateMethods:
+  Enabled: true
+
+#################### Metrics #######################
+Metrics/AbcSize:
+  Enabled: true
+  Max: 60
+Metrics/MethodLength:
+  Enabled: true
+  Max: 40
+
+#################### Rails ########################
+# Date のメソッドのうち、タイムゾーンを加味しないメソッドの使用を禁止する
+Rails/Date:
+  Enabled: true
+Rails/HasManyOrHasOneDependent:
+  Enabled: true
+# helperメソッドでインスタンス変数を使うことを禁止する
+Rails/HelperInstanceVariable:
+  Enabled: true
+
+#################### RSpec ########################
+RSpec/ArroundBlock:
+  Enabled: true
+RSpec/Be:
+  Enabled: true
+RSpec/BeEmpty:
+  Enabled: true
+RSpec/ContextMethod:
+  Enabled: true
+RSpec/DescribedClassModuleWrapping:
+  Enabled: true
+RSpec/DuplicatedMetadata:
+  Enabled: true
+RSpec/EmptyHook:
+  Enabled: true
+RSpec/EmptyLineAfterExample:
+  Enabled: true
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: true
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
+RSpec/EmptyMetadata:
+  Enabled: true
+RSpec/Eq:
+  Enabled: true
+RSpec/ExampleLength:
+  Enabled: true
+RSpec/ExampleWithoutDescription:
+  Enabled: true
+RSpec/ExcessiveDocstringSpacing:
+  Enabled: true
+RSpec/ExpectActual:
+  Enabled: true
+RSpec/MultipleExpectations:
+  Enabled: true
+RSpec/RepeatedDescription:
+  Enabled: true
+RSpec/ScatteredLet:
+  Enabled: true
+Rspec/SubjectStub:
+  Enabled: true
+
+#################### Performance #######################
+Performance:
+  Enabled: true
