@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create!(user_params)
-    redirect_to action: "show"
+    user = User.create!(user_params)
+    redirect_to user
   end
 
   def show
+    @user = User.find(params[:id])
+    head :forbidden if !logged_in? or @user.id != current_user.id
   end
 
   private
