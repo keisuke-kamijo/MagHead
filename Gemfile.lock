@@ -65,6 +65,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     backport (1.2.0)
+    bcrypt (3.1.20)
     benchmark (0.3.0)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -321,6 +322,7 @@ PLATFORMS
   aarch64-linux
 
 DEPENDENCIES
+  bcrypt
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
